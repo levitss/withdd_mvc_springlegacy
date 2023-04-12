@@ -5,7 +5,8 @@
   Time: 오전 12:01
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
 <html>
 <head>
     <title>Title</title>
@@ -13,7 +14,7 @@
 <body>
 
 
-<form method="POST">
+<form action="main/join" method="POST">
     <!-- 아이디 -->
     <div class="form-group">
         <label for="user_id">아이디</label>
