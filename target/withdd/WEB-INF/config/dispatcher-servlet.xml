@@ -32,7 +32,11 @@
 
     </beans:bean>
 
+    <beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <beans:property name="locations" value="classpath:/s3.properties"/>
+        <beans:property name="fileEncoding" value="utf-8"/>
 
+    </beans:bean>
     <!-- 뷰 prefix, suffix 설정 -->
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="prefix" value="/WEB-INF/jsp/"/>

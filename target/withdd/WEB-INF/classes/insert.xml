@@ -21,6 +21,6 @@
         delete from test_user where id=#{id}
     </delete>
     <insert id="insert" keyProperty="id" parameterType="UserDto">
-        insert into test_user (id,name,pw) values (#{id},#{name},#{pw})
+        insert into test_user (user_email,user_name,user_pw,user_contact,user_join_date,user_updated_date) values (#{id},#{name},#{pw},#{tel},#{})
     </insert>
 </mapper>
