@@ -7,6 +7,15 @@
   <version>1.0-SNAPSHOT</version>
   <name>withdd Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  <repositories>
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <id>central</id>
+      <url>https://repo.spring.io/libs-milestone</url>
+    </repository>
+  </repositories>
 
   <properties>
     <org.springframework-version>5.2.23.RELEASE</org.springframework-version>
@@ -25,19 +34,6 @@
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
-
-
-
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-webmvc</artifactId>
-        <version>${org.springframework-version}</version>
-      </dependency>
-
-
-
-
-
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
@@ -91,6 +87,14 @@
       <artifactId>postgresql</artifactId>
       <version>42.6.0</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io
+    파일 확장자 판별용-->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.11.0</version>
+    </dependency>
+
     <!--  https://mvnrepository.com/artifact/org.projectlombok/lombok  -->
     <dependency>
       <groupId>org.projectlombok</groupId>
@@ -177,7 +181,19 @@
       <artifactId>spring-cloud-aws-autoconfigure</artifactId>
       <version>1.2.1.RELEASE</version>
     </dependency>
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>2.3.0</version>
+    </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.9.2</version>
+      <scope>test</scope>
+    </dependency>
 
   </dependencies>
   <build>
