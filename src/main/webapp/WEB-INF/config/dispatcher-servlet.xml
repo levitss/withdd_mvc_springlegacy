@@ -35,11 +35,12 @@
         <beans:property name="locations" value="classpath:/jdbc.properties"/>
         <beans:property name="fileEncoding" value="utf-8"/>
     </beans:bean>
-    <context:property-placeholder location="classpath:s3.properties"/>
-    <beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <beans:property name="locations" value="classpath:/s3.properties"/>
-        <beans:property name="fileEncoding" value="utf-8"/>
-    </beans:bean>
+<!--    <context:property-placeholder location="classpath:s3.properties"/>-->
+<!--    <beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+<!--        <beans:property name="locations" value="classpath:/s3.properties"/>-->
+<!--        <beans:property name="fileEncoding" value="utf-8"/>-->
+<!--    </beans:bean>-->
+<!--    <util:properties id="props" location="classpath:s3.properties" />-->
 
 
     <!-- 뷰 prefix, suffix 설정 -->

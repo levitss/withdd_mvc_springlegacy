@@ -1,25 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/kit_code.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6eb28aa20d7222d5529f51952b8be3c3"></script>
-<!-- services 라이브러리 불러오기 -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>
-
+    <script src="https://kit.fontawesome.com/kit_code.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/cac1ec65f4.js" crossorigin="anonymous"></script>
-    <script src="main.js" defer></script>
-    <script src="maps.js" defer></script>
-
+    <script src="/script/main.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
 
-    <title>Nav Bar</title>
+    <title>위드댕</title>
 </head>
 
 <body>
@@ -37,6 +34,7 @@
                 <li><a href="dangcomu.html">댕댕커뮤</a></li>
                 <li><a href="dangoffice.html">댕사무소</a></li>
                 <li><button class="btnLogin"><a href="login.html">login</a></button></li>
+                <li><a href="mypage.html"><i class="fa fa-user-o" id="mypage" aria-hidden="true"></i></a></li>
 
             </ul>
             <a href="#" class="navbar__toggleBtn">
@@ -45,12 +43,53 @@
         </nav>
     </header>
     <section id="main">
-        <div class="main-map" id="map" style="width:80%;height:800px;">
+        <div class="main-map">
+            <a class="dogicon" style="height: 150px; z-index: 2"><img src="./image/dogicon.png" /></a>
+            <br><br>
+            <p class="main-title"> 댕댕여지도</p>
 
-</div>
-<button type="button" class="btn_locnow" id="getMyPositionBtn" onclick="getCurrentPosBtn()">내 위치 가져오기</button>
+            <div id="map" class="map" style="width: auto; height: 500px;z-index: 1"></div>
+
+
+
+            <div class="main-side">
+                <div class="main-pin">
+                    <a href="#"><img src="./image/pin1.png" alt="핀1"></a>
+                </div>
+                <div class="main-pin">
+                    <a href="#"><img src="./image/pin2.png" alt="핀2"></a>
+                </div>
+                <div class="main-pin">
+                    <a href="#"><img src="./image/pin3.png" alt="핀3"></a>
+                </div>
+                <div class="main-pin">
+                    <a href="#"><img src="./image/pin4.png" alt="핀4"></a>
+                </div>
+                <div class="main-pin">
+                    <a href="#"><img src="./image/pin5.png" alt="핀5"></a>
+                </div>
+                <div class="main-pin">
+                    <a href="#"><img src="./image/pin6.png" alt="핀6"></a>
+                </div>
+            </div>
+        </div>
 
     </section>
+    <br><br>
+    <article class="main-about">
+        <div class="main-btn" width="80%" height="auto">
+            <button type="button" id="main-btn" name="petsitter"><a href="dangguen.html">댕근마켓 바로가기▶</a></button>
+            <button type="button" id="main-btn" name="pet"><a href="dangcare.html">댕댕케어 바로가기▶</a></button>
+        </div>
+        <br>
+    </article>
+    <br><br>
+    <footer class="main-about">
+        <img src="./image/about.png" width="90%" height="auto">
+    </footer>
+    <br><br><br><br>
+
+
 
 
 

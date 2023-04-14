@@ -7,25 +7,32 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
+@PropertySource(value = "classpath:/s3.properties")
 public class S3Config {
-    @Value("${cloud.aws.credentials.accessKey}")
-    private String accessKey;
-    @Value("${cloud.aws.credentials.secretKey}")
-    private String secretkey;
-    @Value("${cloud.aws.region.static}")
-    private String region;
+    @Value("${cloud_aws_credentials_accessKey}")
+    private String cloud_aws_credentials_accessKey;
+    @Value("${cloud_aws_credentials_secretKey}")
+    private String cloud_aws_credentials_secretKey;
+    @Value("${cloud_aws_region_static}")
+    private String cloud_aws_region_static;
 
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
 
     @Bean
     public BasicAWSCredentials basicAWSCredentials() {
-        return new BasicAWSCredentials(accessKey, secretkey);
+        return new BasicAWSCredentials(cloud_aws_credentials_accessKey, cloud_aws_credentials_secretKey);
     }
     @Bean
     public AmazonS3Client amazonS3Client(AWSCredentials awsCredentials) {
         AmazonS3Client amazonS3Client = new AmazonS3Client(awsCredentials);
-        amazonS3Client.setRegion(Region.getRegion(Regions.fromName(region)));
+        amazonS3Client.setRegion(Region.getRegion(Regions.fromName(cloud_aws_region_static)));
         return amazonS3Client;
     }
 }

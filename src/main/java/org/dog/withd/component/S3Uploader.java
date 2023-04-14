@@ -12,6 +12,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Optional;
 
 @Slf4j
@@ -21,8 +24,8 @@ public class S3Uploader {
 
     private final AmazonS3Client amazonS3Client;
 
-    @Value("${cloud.aws.s3.bucket}")
-    private String bucket;
+    @Value("${cloud_aws_s3_bucket}")
+    private String cloud_aws_s3_bucket;
 
     public String upload(MultipartFile multipartFile, String dirName) throws IOException {
         File uploadFile = convert(multipartFile)
@@ -32,15 +35,16 @@ public class S3Uploader {
     }
 
     private String upload(File uploadFile, String dirName) {
+        String date = LocalDate.now().format(DateTimeFormatter.ISO_DATE);
         String fileName = dirName + "/" + uploadFile.getName();
         String uploadImageUrl = putS3(uploadFile, fileName);
         removeNewFile(uploadFile);
-        return uploadImageUrl;
+        return uploadImageUrl;//나중에 사진 이미지 erd 확인해야 하겠음
     }
 
     private String putS3(File uploadFile, String fileName) {
-        amazonS3Client.putObject(new PutObjectRequest(bucket, fileName, uploadFile).withCannedAcl(CannedAccessControlList.PublicRead));
-        return amazonS3Client.getUrl(bucket, fileName).toString();
+        amazonS3Client.putObject(new PutObjectRequest(cloud_aws_s3_bucket, fileName, uploadFile).withCannedAcl(CannedAccessControlList.PublicRead));
+        return amazonS3Client.getUrl(cloud_aws_s3_bucket, fileName).toString();
     }
 
     private void removeNewFile(File targetFile) {
@@ -53,7 +57,7 @@ public class S3Uploader {
 
     private Optional<File> convert(MultipartFile file) throws IOException {
         File convertFile = new File(file.getOriginalFilename());
-        if(convertFile.createNewFile()) {
+        if(convertFile.createNewFile()) {//중복이 있으면 false임
             try (FileOutputStream fos = new FileOutputStream(convertFile)) {
                 fos.write(file.getBytes());
             }
